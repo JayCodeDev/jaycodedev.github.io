@@ -35,6 +35,32 @@
 
   <link rel="stylesheet" type="text/css" href="assets/css/topbar.virtual.css" />
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("user_nHYvoypKlq6ArLBeecpbP");
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_4qatnvy', 'contact_form', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    document.getElementById('contact_name').value = '';
+                    document.getElementById('contact_email').value = '';
+                    document.getElementById('contact_subject').value = '';
+                    document.getElementById('contact_message').value = '';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYQ98CK30Y"></script>
   <script>
@@ -360,7 +386,7 @@
       <div class="row">
         <div class="col-lg-4 py-3">
           <div class="img-place wow fadeInUp">
-            <img src="assets/img/person-removebg.jpg" alt="" />
+            <img style="border-color: #EF3724;border-radius: 2px;border-style: solid;border-width: 4px;" src="assets/img/person-removebg.jpg" alt="" />
           </div>
         </div>
         <div class="col-lg-6 offset-lg-1 wow fadeInRight">
@@ -548,21 +574,22 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <form class="vg-contact-form">
+          <form class="vg-contact-form" id="contact-form">
             <div class="form-row">
+              <input type="hidden" name="contact_number">
               <div class="col-12 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Name" placeholder="Your Name" />
+                <input class="form-control" type="text" name="user_name" placeholder="Your Name" id="contact_name" />
               </div>
               <div class="col-6 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Email" placeholder="Email Address" />
+                <input class="form-control" type="text" name="user_email" placeholder="Email Address" id="contact_email" />
               </div>
               <div class="col-6 mt-3 wow fadeInUp">
-                <input class="form-control" type="text" name="Subject" placeholder="Subject" />
+                <input class="form-control" type="text" name="subject" placeholder="Subject" id="contact_subject" />
               </div>
               <div class="col-12 mt-3 wow fadeInUp">
-                <textarea class="form-control" name="Message" rows="6" placeholder="Enter message here.."></textarea>
+                <textarea class="form-control" name="message" rows="6" placeholder="Enter message here.." id="contact_message"></textarea>
               </div>
-              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">
+              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1" id="contact-sendmessage">
                 Send Message
               </button>
             </div>
