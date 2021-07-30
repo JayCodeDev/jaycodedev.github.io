@@ -64,8 +64,7 @@ $("#call_confirm").click(function () {
 
 });
 
-$("#contact-sendmessage").click(function () {
-
+function contactMessageSuccess() {
   // Open customized confirmation dialog window
   $.fancyConfirm({
     title: "Message Sent Successfully",
@@ -80,4 +79,21 @@ $("#contact-sendmessage").click(function () {
     }
   });
 
-});
+};
+
+function contactMessageFailed() {
+  // Open customized confirmation dialog window
+  $.fancyConfirm({
+    title: "Message Failed to Send",
+    okButton: 'OK',
+    noButton: 'Cancel',
+    callback: function (value) {
+      if (value) {
+        console.log('OK');
+      } else {
+        console.log('Cancelled');
+      }
+    }
+  });
+
+};

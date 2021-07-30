@@ -55,8 +55,14 @@
                     document.getElementById('contact_email').value = '';
                     document.getElementById('contact_subject').value = '';
                     document.getElementById('contact_message').value = '';
+                    contactMessageSuccess();
                 }, function(error) {
                     console.log('FAILED...', error);
+                    document.getElementById('contact_name').value = '';
+                    document.getElementById('contact_email').value = '';
+                    document.getElementById('contact_subject').value = '';
+                    document.getElementById('contact_message').value = '';
+                    contactMessageFailed();
                 });
         });
     }
@@ -589,7 +595,7 @@
               <div class="col-12 mt-3 wow fadeInUp">
                 <textarea class="form-control" name="message" rows="6" placeholder="Enter message here.." id="contact_message"></textarea>
               </div>
-              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1" id="contact-sendmessage">
+              <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">
                 Send Message
               </button>
             </div>
