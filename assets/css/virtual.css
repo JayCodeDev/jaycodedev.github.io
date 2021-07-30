@@ -1147,6 +1147,10 @@ a:active {
   margin-right: 5px;
 }
 
+#calc_img {
+    height: 253.3px !important;
+}
+
 @media (min-width: 768px) {
   .gridder .grid-item,
   .gridder .grid-sizer {
