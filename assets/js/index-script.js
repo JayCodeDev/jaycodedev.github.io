@@ -45,7 +45,7 @@ $.fancyConfirm = function( opts ) {
 // Step 2: Start using it!
 // =======================
 
-$("#delete_confirm").click(function() {
+$("#call_confirm").click(function() {
 
   // Open customized confirmation dialog window
   $.fancyConfirm({

@@ -1477,7 +1477,7 @@ a:active {
 
 /* Footer */
 
-#delete_confirm {
+#call_confirm {
   background-color: transparent;
   border-color: transparent;
   font-size: 21px;
@@ -1485,7 +1485,7 @@ a:active {
   margin-left: -13px;
 }
 
-#delete_confirm:hover {
+#call_confirm:hover {
   text-decoration: underline;
 }
 
